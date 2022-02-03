@@ -33,10 +33,20 @@ function calculateAll() {
   // ITERATION 2
 
   // getting DOM elements by class for each product
-  const products = document.getElementsByClassName('.product');
+  const products = document.getElementsByClassName('product');
+  // console.log(products);
+  //Calling the function updateSubtotal to iterat on every tr.product and setting it into a variable.
+  let eachSubtotal = 0;
+  for (const eachProductSubt of products) {
+    eachSubtotal += updateSubtotal(eachProductSubt);
+    //it works with += too. Investigate the diference.
+    console.log(eachSubtotal);
+  }
 
   // ITERATION 3
-  //... your code goes here
+  //Putting the total value of all products. Careful: if we don't return subtotalValue in updateSubtotal function, we get NaN response.
+  let totalValueProducts = document.querySelector('#total-value span');
+  totalValueProducts.innerHTML = eachSubtotal;
 }
 
 // ITERATION 4
